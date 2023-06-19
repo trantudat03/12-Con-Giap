@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Con Giáp</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content_grap">
+            <h1>Tìm can chi theo năm</h1>
+            <input type="number" class="input_number" placeholder="nhập năm">
+            <button class="submit">Search</button>
+            <div >
+                <h3>Câu trả lời</h3>
+                <p class="answer"></p>
+            </div>
+        </div>
+
+        <div class="content_grap">
+            <h1>Tìm năm có chi x gần năm y nhất </h1>
+            <input type="text" class="input_text" placeholder="nhập Chi">
+            <input type="number" class="input_number2" placeholder="nhập năm">
+            <button class="submit_2">Search</button>
+            <div >
+                <h3>Câu trả lời</h3>
+                <p class="answer_2"></p>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+<script>
+
+    var cans = ["Canh", "Tân", "Nhâm", "Quý", "Giáp"," Ất", "Bính", "Đinh"," Mậu", "Kỷ"];
+    
+    var chis = ["Thân", "Dậu", "Tuất", "Hợi", "Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi"];
+
+    function canChi(year) {
+        year = parseInt(year);
+        var can;
+        can = cans[year%10];
+
+        
+        var chi = chis[year%12];
+        return can + " " + chi; 
+    }
+
+    function sapXep(array) {
+        var len = array.length;
+        for(var i=0; i<len; i++) {
+            for(var j=i+1; j<len; j++) {
+                if(array[i] > array[j]) {
+                    var temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                    }
+                    }
+                    }
+
+    }
+
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function timCanChiGanNamNhat(nam, chi) {
+        var myArray = new Array();
+        chi = capitalizeFirstLetter(chi);
+        var dem =0;
+        if(chi == chis[nam%12]){
+            myArray[dem] = nam;
+            dem++;
+        }
+        var namGan = nam;
+        for(var i = 0; i < 12; i++) { 
+            namGan++;
+            if(chi == chis[namGan%12]){
+                myArray[dem] = namGan;
+                dem++;
+                break;
+            }
+        }
+        namGan = nam;
+        for(var i = 0; i < 12; i++) { 
+            namGan--;
+            if(chi == chis[namGan%12]){
+                myArray[dem] = namGan;
+                break;
+            }
+        }
+        sapXep(myArray);
+        if(myArray.length == 0) {
+            
+            return myArray[0] = 'lỗi ';
+        }
+
+        
+
+        return myArray;
+    }
+
+            var input = document.querySelector(".input_number");
+            var submit = document.querySelector(".submit");
+            var answer = document.querySelector(".answer");
+//
+            var input2 = document.querySelector(".input_text");
+            var input3 = document.querySelector(".input_number2");
+            var submit2 = document.querySelector(".submit_2");
+            var answer2 = document.querySelector(".answer_2");
+        
+            submit.addEventListener('click', () => {
+               // var year = ;
+
+                var canChir = canChi(parseInt(input.value))
+
+                answer.innerHTML = canChir;
+
+                // var nam
+
+                
+
+                
+            });
+
+                console.log(timCanChiGanNamNhat(2003,"MÙI"))
+            
+            submit2.addEventListener('click', () => {
+                var nams = timCanChiGanNamNhat(parseInt(input3.value), input2.value)
+                // console.log(nams)
+                var lineBreak = document.createElement("br");
+                answer2.innerHTML = "";
+                for(var i=0;i<nams.length;i++) {
+                    var textNode = document.createTextNode(`${nams[i]}`);
+                    answer2.appendChild(textNode) 
+                    answer2.appendChild(lineBreak)
+                }
+            })
+
+
+            
+    
+    
+        
+    
+    
+    
+        
+</script>
+

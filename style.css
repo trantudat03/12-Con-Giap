@@ -1,0 +1,104 @@
+/* CSS cho container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* CSS cho content_grap */
+  .content_grap {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* CSS cho tiêu đề */
+  .content_grap h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* CSS cho input */
+.content_grap input[type="number"],
+.content_grap input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.content_grap input[type="number"]:focus,
+.content_grap input[type="text"]:focus {
+  border-color: #4caf50;
+}
+
+/* CSS cho placeholder */
+.content_grap input::placeholder {
+  color: #999;
+}
+
+/* CSS cho button */
+.content_grap button.submit,
+.content_grap button.submit_2 {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content_grap button.submit:hover,
+.content_grap button.submit_2:hover {
+  background-color: #45a049;
+}
+
+  
+  /* CSS cho button */
+  .content_grap button.submit,
+  .content_grap button.submit_2 {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .content_grap button.submit:hover,
+  .content_grap button.submit_2:hover {
+    background-color: #45a049;
+  }
+  
+  /* CSS cho div chứa câu trả lời */
+  .content_grap div > h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+ /* CSS cho câu trả lời */
+.content_grap p.answer,
+.content_grap p.answer_2 {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+  font-family: "Arial", sans-serif;
+  font-style: italic;
+  font-weight: normal;
+}
+
+  
